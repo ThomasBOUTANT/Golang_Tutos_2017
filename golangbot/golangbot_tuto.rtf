@@ -1,0 +1,333 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;\red0\green77\blue187;\red255\green0\blue0;}
+{\*\generator Riched20 6.3.9600}\viewkind4\uc1 
+\pard\qc\b\f0\fs52\lang1036 *** Golang tutorial series ***\b0\fs22\par
+
+\pard\par
+\par
+{{\field{\*\fldinst{HYPERLINK https://golangbot.com/learn-golang-series/ }}{\fldrslt{https://golangbot.com/learn-golang-series/\ul0\cf0}}}}\f0\fs22\par
+\par
+\par
+\par
+\b Introduction\b0\par
+\tab 1 - Introduction and Installation \par
+\tab 2 - Hello World\par
+\par
+\b Variables, Types and Constants\b0\par
+\tab 3 - Variables \par
+\tab 4 - Types \par
+\tab 5 - Constants\par
+\par
+\b Functions and Packages\b0\par
+\tab 6 - Functions \par
+\tab 7 - Packages\par
+\par
+\b Conditional Statements and Loops\b0\par
+\tab 8 - if else statement \par
+\tab 9 - Loops \par
+\tab 10 - Switch Statement\par
+\par
+\b Arrays, Slices and Variadic Functions\b0\par
+\tab 11 - Arrays and Slices \par
+\tab 12 - Variadic Functions\par
+\par
+\b More types\b0\par
+\tab 13 - Maps \par
+\tab 14 - Strings\par
+\par
+\b Pointers, Structures and Methods\b0\par
+\tab 15 - Pointers \par
+\tab 16 - Structures \par
+\tab 17 - Methods\par
+\par
+\b Interfaces\b0\par
+\tab 18 - Interfaces - I \par
+\tab 19 - Interfaces - II\par
+\par
+\b Concurrency\b0\par
+\tab 20 - Introduction to Concurrency \par
+\tab 21 - Goroutines \par
+\tab 22 - Channels \par
+\tab 23 - Buffered Channels and Worker Pools \par
+\tab 24 - Select \par
+\tab 25 - Mutex\par
+\par
+\b Object Oriented Programming\b0\par
+\tab 26 - Structs Instead of Classes \par
+\tab 27 - Composition Instead of Inheritance \par
+\tab 28 - Polymorphism\par
+\par
+\b Defer and Error Handling\b0\par
+\tab 29 - Defer \par
+\tab 30 - Error Handling \par
+\tab 31 - Custom Errors \par
+\tab 32 - Panic and Recover\par
+\par
+\par
+********************************************************************\par
+\par
+
+\pard\par
+\b\fs56 Introduction\b0\fs32\par
+\b\fs40\tab 1 - Introduction and Installation \b0\fs32\par
+\par
+\b\fs24 What is Golang\b0\fs22\par
+--> an open source, compiled and statically typed programming language created by google.\par
+\par
+\b\fs24 Why Golang\b0\fs22\par
+--> Golang is a compiled language. The source code is compiled to native binary. This is missing in interpreted languages such as JavaScript used in nodejs.\par
+--> The language spec is pretty simple. The entire spec fits in a page and you can even use it to write your own compiler :)\par
+--> The go compiler supports static linking. All the go code can be statically linked into one big fat binary and it can be deployed in cloud servers easily without worrying about dependencies.\par
+\par
+\b\fs24 Installation - Windows\b0\par
+\fs22 Download the MSI installer from {{\field{\*\fldinst{HYPERLINK https://golang.org/dl/ }}{\fldrslt{https://golang.org/dl/\ul0\cf0}}}}\f0\fs22 .\fs32\par
+\par
+\b\fs40\tab 2 - Hello World\b0\fs32\par
+\fs22\par
+1 - Create the script \cf2\i helloworld.go\cf0\i0\par
+2 - Use a terminal and go (\cf3\i cd\cf0\i0 ) into the current folder\par
+3 - Use go run command:  \cf3\i go run helloworld.go\cf0\i0\par
+\par
+\b\fs56 Variables, Types and Constants\b0\fs32\par
+\tab\b\fs40 3 - Variables \b0\fs32\par
+\fs22\par
+\b\fs24 Declaring a single variable\b0\fs22\par
+\cf2\i var \cf0\i0 name type is the syntax to declare a single variable.\par
+\par
+The statement \cf2\i var age int\cf0\i0  declares a variable named age of type \cf2\i int\cf0\i0 . \par
+If a variable is not assigned any value, go automatically initialises it with the zero value of the variable's type. \par
+\par
+\b\fs24 Declaring a variable with initial value\b0\fs22\par
+A variable can also be given a initial value when it is declared.\par
+\par
+\b\fs24 Type inference\b0\fs22\par
+If the variable is declared using the syntax var name = initialvalue, Go will automatically infer the type of that variable from the initial value.\par
+\par
+\b\fs24 Multiple variable declaration\fs22\par
+\cf2\b0\i var name1, name2 type = initialvalue1, initialvalue2\cf0\i0  is the syntax for multiple variable declaration.\par
+\par
+The type can be omitted if the variables have initial value. The program below declares multiple variables using type inference.\par
+\par
+To declare variables belonging to different types in a single statement:\par
+
+\pard\li720\cf2\i var (  \par
+      name1 = initialvalue1,\par
+      name2 = initialvalue2\par
+)\par
+
+\pard\cf0\i0\par
+\b\fs24 Short hand declaration\fs22\par
+\cf2\b0\i name := initialvalue \cf0\i0 is the short hand syntax to declare a variable.\par
+\par
+\cf3\b /!\\\cf0\b0  Short hand syntax can only be used when at least one of the variables in the left side of \cf2\i :=\cf0\i0  is newly declared.\par
+\par
+Since Go is strongly typed, variables declared as belonging to one type cannot be assigned a value of another type. \par
+\fs32\par
+\b\fs40\tab 4 - Types \b0\fs32\par
+\fs22\par
+List of the basic types available in go:\par
+
+\pard\li720 - bool\par
+- Numeric Types\par
+- int8, int16, int32, int64, int\par
+- uint8, uint16, uint32, uint64, uint\par
+- float32, float64\par
+- complex64, complex128\par
+- byte\par
+- rune\par
+- string\par
+
+\pard\par
+\b\fs24 bool\b0\fs22\par
+--> a booleen\par
+\par
+Operations: && and ||\par
+\par
+\b\fs24 Signed integers\b0\fs22\par
+int8: represents 8 bit signed integers \par
+size: 8 bits \par
+range: -128 to 127\par
+\par
+int16: represents 16 bit signed integers \par
+size: 16 bits \par
+range: -32768 to 32767\par
+\par
+int32: represents 32 bit signed integers \par
+size: 32 bits \par
+range: -2147483648 to 2147483647\par
+\par
+int64: represents 64 bit signed integers \par
+size: 64 bits \par
+range: -9223372036854775808 to 9223372036854775807\par
+\par
+int: represents 32 or 64 bit integers depending on the underlying platform.\par
+size: 32 bits in 32 bit systems and 64 bit in 64 bit systems. \par
+range: -2147483648 to 2147483647 in 32 bit systems and -9223372036854775808 to 9223372036854775807 in 64 bit systems\par
+\par
+\par
+Go has a package \cf2 unsafe \cf0 which has a \cf2 Sizeof \cf0 function which returns in bytes the size of the variable passed to it.\par
+\par
+\cf2\i %T\cf0\i0  is the format specifier to print the type and \cf2\i %d\cf0\i0  is used to print the size (an integer).\par
+\par
+  \par
+\b\fs24 Unsigned integers\b0\fs22\par
+uint8: represents 8 bit unsigned integers \par
+size: 8 bits \par
+range: 0 to 255\par
+\par
+uint16: represents 16 bit unsigned integers \par
+size: 16 bits \par
+range: 0 to 65535\par
+\par
+uint32: represents 32 bit unsigned integers \par
+size: 32 bits \par
+range: 0 to 4294967295\par
+\par
+uint64: represents 64 bit unsigned integers \par
+size: 64 bits \par
+range: 0 to 18446744073709551615\par
+\par
+uint : represents 32 or 64 bit unsigned integers depending on the underlying platform. \par
+size : 32 bits in 32 bit systems and 64 bits in 64 bit systems. \par
+range : 0 to 4294967295 in 32 bit systems and 0 to 18446744073709551615 in 64 bit systems\par
+\par
+\b Floating point types\b0\par
+float32: 32 bit floating point numbers \par
+float64: 64 bit floating point numbers\par
+ \par
+\b Complex types\b0\par
+complex64: complex numbers which have float32 real and imaginary parts \par
+complex128: complex numbers with float64 real and imaginary parts\par
+\par
+\cf2\i func complex(r, i FloatType)\cf0\i0\par
+\par
+Complex numbers can also be created using the shorthand syntax\par
+\cf2\i c := 6 + 7i  \cf0\i0\par
+\par
+\b Other numeric types\b0\par
+byte is an alias of uint8 \par
+rune is an alias of int32\par
+\par
+\par
+\b string type\b0\par
+Strings are a collection of bytes in golang. \par
+\par
+Strings can be concatenated using the + operator.\par
+\par
+\b Type Conversion\b0\par
+Go is very strict about explicit typing. There is no automatic type promotion or conversion. \par
+We can't add an "int" and a "float" for instance.\par
+\par
+\cf2\i T(v) \cf0\i0 is the syntax to convert a value \cf2\i v\cf0\i0  to type \cf2\i T\cf0\i0\par
+\par
+\b\fs40\tab 5 - Constants\b0\fs32\par
+\cf2\i\fs22 const name = value\cf0\i0\par
+\par
+The value of a constant should be known at compile time. Hence it cannot be assigned to a value returned by a function call since the function call takes place at run time.\par
+\par
+\par
+\b String Constants\par
+\b0 Any value enclosed between double quotes is a string constant in Go. For example strings like "Hello World" or "Sam" are all constants in Go.\par
+\par
+What type does a string constant belong to? The answer is they are untyped.\par
+\par
+A string constant like "Hello World" does not have any type.\par
+\par
+const hello = "Hello World"  \par
+In the above case we have assigned "Hello World" to a named constant hello. Now does the constant hello have a type? The answer is No. The constant still doesn't have a type.\par
+\par
+Go is a strongly typed language. All variables require a explicit type. Then how does the following program which assigns a variable name to an untyped constant Sam work?\par
+\par
+\par
+The answer is untyped constants have a default type associated with them and they supply it if and only if a line of code demands it. In the statement var name = "Sam", name needs a type and it gets it from the default type of the string constant "Sam" which is a string.\par
+\par
+Is there a way to create a typed constant? The answer is yes. The following code creates a typed constant.\par
+\par
+\par
+Go is a strongly typed language. Mixing types during assignment is not allowed. Let's see what this means by the help of a program.\par
+\par
+In the above code, we first create a variable defaultName and assign it to the constant Sam. The default type of the constant Sam is string, so after the assignment defaultName is of type String.\par
+\par
+In the next line we create a new type myString which is an alias of string.\par
+\par
+Then we create a variable customName of type myString and assign it to the constant Sam. Since the constant Sam is untyped it can be assigned to any string variable. Hence this assignment is allowed and customName gets the type myString.\par
+\par
+Now we have a variable defaultName of type string and another variable customName of type myString. Even though we know that myString is an alias of string, Go's strong typing policy disallows variables of one type to be assigned to another. Hence the assignment customName = defaultName is not allowed and the compiler throws an error main.go:7:20: cannot use defaultName (type string) as type myString in assignment\par
+\par
+\b Boolean Constants\par
+\b0 Boolean constants are no different from string constants. They are two untyped constants true and false. The same rules for string constants apply to booleans so we will not repeat them here. The following is a simple program to explain boolean constants.\par
+\par
+\par
+The above program is self explanatory.\par
+\par
+\b Numeric Constants\par
+\b0 Numeric constants include integers, floats and complex constants. There are some subtleties in numeric constants.\par
+\par
+Lets look at some examples to make things clear.\par
+\par
+\par
+In the program above, the const a is untyped and has a value 5. You may be wondering what is the default type of a and if it does have one, how do we then assign it to variables of different types. The answer lies in the syntax of a. The following program will make things more clear.\par
+\par
+In the program above, the type of each variable is determined by the syntax of the numeric constant. 5 is an integer by syntax, 5.6 is a float and 5 + 6i is a complex number by syntax. When the above program is run, it prints i's type int, f's type float64, c's type complex128\par
+\par
+Now I hope it will be clear how the below program worked.\par
+\par
+\par
+In this program, the value of a is 5 and the syntax of a is generic (it can represent a float, integer or even a complex number with no imaginary part) and hence it is possible to be assigned to any compatible type. The default type of these kind of constants can be thought of as being generated on the fly depending on the context. var intVar int = a requires a to be int so it becomes an int constant. var complex64Var complex64 = a requires a to be a complex number and hence it becomes a complex constant. Pretty neat :).\par
+\par
+\b Numeric Expressions\par
+\b0 Numeric constants are free to be mixed and matched in expressions and a type is needed only when they are assigned to variables or used in any place in code which demands a type.\par
+\par
+\par
+\par
+\b\fs32 Functions and Packages\b0\par
+\tab 6 - Functions \par
+\tab 7 - Packages\par
+\par
+\b Conditional Statements and Loops\b0\par
+\tab 8 - if else statement \par
+\tab 9 - Loops \par
+\tab 10 - Switch Statement\par
+\par
+\b Arrays, Slices and Variadic Functions\b0\par
+\tab 11 - Arrays and Slices \par
+\tab 12 - Variadic Functions\par
+\par
+\b More types\b0\par
+\tab 13 - Maps \par
+\tab 14 - Strings\par
+\par
+\b Pointers, Structures and Methods\b0\par
+\tab 15 - Pointers \par
+\tab 16 - Structures \par
+\tab 17 - Methods\par
+\par
+\b Interfaces\b0\par
+\tab 18 - Interfaces - I \par
+\tab 19 - Interfaces - II\par
+\par
+\b Concurrency\b0\par
+\tab 20 - Introduction to Concurrency \par
+\tab 21 - Goroutines \par
+\tab 22 - Channels \par
+\tab 23 - Buffered Channels and Worker Pools \par
+\tab 24 - Select \par
+\tab 25 - Mutex\par
+\par
+\b Object Oriented Programming\b0\par
+\tab 26 - Structs Instead of Classes \par
+\tab 27 - Composition Instead of Inheritance \par
+\tab 28 - Polymorphism\par
+\par
+\b Defer and Error Handling\b0\par
+\tab 29 - Defer \par
+\tab 30 - Error Handling \par
+\tab 31 - Custom Errors \par
+\tab 32 - Panic and Recover\par
+\par
+\par
+\par
+
+\pard\par
+}
+ 
